@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { WhoWeAre, WhereWeWork, WhatWeDo, ContactUs } from './components';
 import reportWebVitals from './reportWebVitals';
+
+import './styles.css'
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <WhoWeAre title={'NZA'} />
+        </Route>
+        <Route path='/wherewework' component={WhereWeWork} />
+        <Route path='/whatwedo' component={WhatWeDo} />
+        <Route path='/contactus' component={ContactUs} />
+      </Switch>
+    </Router>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
